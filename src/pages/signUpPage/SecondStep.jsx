@@ -10,7 +10,7 @@ const SecondStep = ({step, setStep}) => {
     <div className='py-5 lg:px-24 md:px-16 px-4 '>
         <div className='flex mb-8 md:items-center md:justify-baseline justify-between flex-wrap lg:gap-20 md:gap-8'>
             <h1 className='md:text-3xl text-xl font-semibold'>Sign up</h1> 
-            <NavLink to="/logIn"><p>Sign in</p></NavLink>
+            <NavLink to="/logIn"><p className='underline'>Sign in</p></NavLink>
         </div>
 
         <form action="" method="" className='flex flex-col gap-4'>

@@ -21,7 +21,7 @@ const Navbar = () => {
             <li><NavLink to="/faqs">FAQ's</NavLink></li>
             <li><NavLink to="/co-living">Co-living</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
-            <li className='bg-[#155DFC] text-white p-4 rounded-xl'>Get Started</li>
+            <NavLink to="/signUp"><li className='bg-[#155DFC] text-white p-4 rounded-xl animate-pulse'>Get Started</li></NavLink>
         </ul>
 
         <div className="md:hidden text-3xl">

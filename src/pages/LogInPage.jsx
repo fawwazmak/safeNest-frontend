@@ -27,7 +27,7 @@ const LogInPage = () => {
                 <div className='bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg  md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full md:py-16 py-8 lg:px-24 md:px-16 px-4 '>
                     <div className='flex mb-8 md:items-center md:justify-baseline justify-between flex-wrap lg:gap-20 md:gap-8'>
                         <NavLink to="/signUp">
-                            <p>Sign up</p> 
+                            <p className='underline'>Sign up</p> 
                         </NavLink>
 
                         <h1 className='md:text-3xl text-xl font-semibold'>Sign in</h1>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import bg from '/signUpBg.jpg'
 import logo from "/logo.png"
-import FirstStep from './firstStep.jsx'
+import FirstStep from './FirstStep.jsx'
 import SecondStep from './SecondStep.jsx'
 import ThirdStep from './ThirdStep.jsx'
 

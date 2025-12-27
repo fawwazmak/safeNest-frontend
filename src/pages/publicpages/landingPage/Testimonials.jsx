@@ -39,7 +39,7 @@ const Testimonials = () => {
 
             <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-3'>
                 {testimonials.map(testimonial => (
-                    <div className='bg-white md:text-start text-center rounded-xl md:p-8 sm:p-4 p-2'>
+                    <div key={testimonial.id} className='bg-white md:text-start text-center rounded-xl md:p-8 sm:p-4 p-2'>
                         <div className="flex items-center gap-1 w-fit md:mx-0 mx-auto mb-6">
                             {Array(testimonial.rate).fill().map((_, i) => (
                                 <img key={i} src={star} alt="star rating" className="w-6 h-6" />

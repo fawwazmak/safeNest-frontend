@@ -16,32 +16,33 @@ const DNavbar = ({ setShowSideBar }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <div className='bg-white shadow-md p-6 flex justify-between items-center'>
-      <div className="flex md:flex-nowrap flex-wrap w-full justify-between md:gap-0 gap-2 items-center md:border-r md:pr-4 md:mr-4 md:w-2/3">
+      <div className="flex md:flex-nowrap flex-wrap w-full justify-between md:gap-0 gap-2 items-center md:border-r md:pr-4 md:mr-4 md:w-2/3 font-[Inter]">
         <div className="border md:flex hidden gap-1 items-center p-2  w-2/3">
           <CgSearch size={25} />
-          <input type="text" placeholder="Search..." className="outline-none border-none focus:outline-none focus:border-none flex-1"/>
+          <input type="text" placeholder="Search neighbourhoods or properties." className="outline-none border-none focus:outline-none focus:border-none flex-1"/>
         </div>
 
         {/* Logo */}
-        <div className="flex md:hidden items-center gap-2 font-bold text-2xl">
+        <div className="flex flex-wrap sm:justify-baseline justify-center md:hidden items-center gap-2 font-bold text-2xl">
           <img src={Logo} alt="Logo" className='w-10 h-10 ' />
           <p className=''>SAFE <span className='text-[#2B5FA9]'>NEST</span></p>
         </div>
         
         <MdOutlineCircleNotifications size={35} className="md:block hidden" />
 
-        <div className="md:hidden flex items-center gap-2">
-          <CgSearch size={35} className="" />
-          <MdOutlineCircleNotifications size={35} />
-          <BiMenuAltRight className="" size={35} onClick={() => {setShowSideBar(true)}} />
+        {/* Mobile icons */}
+        <div className="md:hidden flex flex-wrap items-center gap-2">
+          <CgSearch size={35} className="cursor-pointer" onClick={() => {setShowSearchBar(true)}} />
+          <MdOutlineCircleNotifications size={35} className="cursor-pointer" />
+          <BiMenuAltRight className="cursor-pointer" size={35} onClick={() => {setShowSideBar(true)}} />
         </div>
 
-        {showSearchBar && (
-          <div className="border gap-1 items-center p-2  w-2/3">
-            <CgSearch size={25} />
-            <input type="text" placeholder="Search..." className="outline-none border-none focus:outline-none focus:border-none flex-1"/>
-          </div>
-        )}
+        {/* Mobile search bar  */}
+        <div className="md:hidden bg-white gap-1 items-center w-full absolute top-6 left-0 p-3 z-50 shadow-lg" style={{display: showSearchBar ? 'flex' : 'none'}}>
+          <CgSearch size={35} className="cursor-pointer" />          
+          <input type="text" placeholder="Search For Properties" className="outline-none border-none focus:outline-none focus:border-none flex-1 bg-gray-300 p-2 rounded-2xl"/>
+          <p className="cursor-pointer" onClick={() => {setShowSearchBar(false)}}>X</p>
+        </div>
       </div>
 
       <div className='md:flex hidden flex-wrap items-center text-sm gap-2'>

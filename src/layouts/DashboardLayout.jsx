@@ -4,7 +4,7 @@ import Navbar from "../component/dashboardComponents/DNavbar.jsx"
 import Sidebar from "../component/dashboardComponents/DSideBar.jsx"
 
 const DashboardLayout = () => {
-  const [showSideBar, setShowSideBar] = useState(true)
+  const [showSideBar, setShowSideBar] = useState(false)
 
   return (
     <div className="h-screen overflow-hidden flex">

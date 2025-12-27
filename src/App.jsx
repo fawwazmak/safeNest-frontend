@@ -9,7 +9,7 @@ import LogInPage from "./pages/publicpages/LogInPage";
 import SignUpPage from "./pages/publicpages/signUpPage/SignUpPage";
 
 // dashboard pages
-import DashboardHome from "./pages/dashboardPages/HomePage";
+import DashboardHome from "./pages/dashboardPages/dashboard/HomePage";
 // import Profile from "./pages/dashboard/Profile";
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
         </Route>
 
         {/* 404 */}
-        <Route path="*" element={<h1 className="text-center mt-20 text-3xl">404 - Page Not Found</h1>} />
+        <Route path="*" element={<h1 className="text-center mt-20 text-3xl font-[Inter]">404 - Page Not Found</h1>} />
 
       </Routes>
     </BrowserRouter>

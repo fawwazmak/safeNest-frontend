@@ -18,7 +18,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 const DSideBar = ({showSideBar, setShowSideBar}) => {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
   return (
-    <div className={`bg-[#2E374E] h-full text-white p-5 ${showSideBar? "block" : "md:block hidden"}`}>
+    <div className={`bg-[#2E374E] h-full text-white p-5 font-[Inter] ${showSideBar? "block" : "md:block hidden"}`}>
         <div className="md:flex hidden items-center gap-2 font-bold md:text-xl text-lg">
             <img src={Logo} alt="Logo" className='w-8 h-8 ' />
             <p className=''>SAFE <span className='text-[#2B5FA9]'>NEST</span></p>

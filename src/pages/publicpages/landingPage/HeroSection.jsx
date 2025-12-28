@@ -1,6 +1,6 @@
 import React from 'react'
 import heroImage from "/landing-hero.png"
-import Button from '../../component/Button.jsx'
+import Button from '../../../component/Button.jsx'
 import searchIcon from "/search.png"
 
 const HeroSection = () => {
@@ -30,23 +30,23 @@ const HeroSection = () => {
                 <p className=''>Filter By:</p>
 
                 <div className='flex md:flex-row flex-col md:gap-12 gap-4 justify-between flex-1 items-center'>
-                    <select className='border-none outline-none w-full' name="location" id="location" required>
-                        <option value="" disabled selected hidden>Location</option>
+                    <select className='border-none outline-none w-full' name="location" id="location" required defaultValue="">
+                        <option value="" disabled hidden>Location</option>
                         <option value="lagos">Lagos</option>
                     </select>
 
-                    <select className='border-none outline-none w-full' name="type" id="type" required>
-                        <option value="" disabled selected hidden>Type</option>
+                    <select className='border-none outline-none w-full' name="type" id="type" required defaultValue="">
+                        <option value="" disabled hidden>Type</option>
                         <option value="apartment">Apartment</option>
                     </select>
 
-                    <select className='border-none outline-none w-full' name="minPrice" id="minPrice" required>
-                        <option value="" disabled selected hidden>Min. Price</option>
+                    <select className='border-none outline-none w-full' name="minPrice" id="minPrice" required defaultValue="">
+                        <option value="" disabled hidden>Min. Price</option>
                         <option value="2000">2000</option>
                     </select>
 
-                    <select className='border-none outline-none w-full' name="maxPrice" id="maxPrice" required>
-                        <option value="" disabled selected hidden>Max. Price</option>
+                    <select className='border-none outline-none w-full' name="maxPrice" id="maxPrice" required defaultValue="">
+                        <option value="" disabled hidden>Max. Price</option>
                         <option value="5000">5000</option>
                     </select>
                 </div>

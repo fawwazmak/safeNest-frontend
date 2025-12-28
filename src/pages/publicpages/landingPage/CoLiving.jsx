@@ -1,6 +1,6 @@
 import React from 'react'
 import imageUrl from "/co-living.png"
-import Button from "../../component/Button.jsx"
+import Button from "../../../component/Button.jsx"
 
 const CoLiving = () => {
   return (

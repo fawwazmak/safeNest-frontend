@@ -51,8 +51,8 @@ const Contact = () => {
         <input className='block w-full border border-gray-300 mb-4 p-2 focus:border-gray-300 focus:outline-none rounded-md' id='email' name='email' placeholder='Your Email' type="email" />
         <input className='block w-full border border-gray-300 mb-4 p-2 focus:border-gray-300 focus:outline-none rounded-md' id='contact' name='contact' placeholder='Phone Number' type="text" />
 
-        <select name="interest" id="interest" className='block w-full my-4 p-2'>
-          <option value="" disabled selected>I'm interested in...</option>
+        <select name="interest" id="interest" className='block w-full my-4 p-2' defaultValue="">
+          <option value="" disabled>I'm interested in...</option>
           <option value="buying">Buying a Property</option>
         </select>
 

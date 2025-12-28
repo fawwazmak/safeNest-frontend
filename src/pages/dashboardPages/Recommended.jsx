@@ -1,5 +1,5 @@
 import { IoIosArrowForward } from "react-icons/io";
-
+import apartment from "/aprtImg.png";
 
 const Recommended = () => {
     const recommended = [
@@ -16,6 +16,7 @@ const Recommended = () => {
             landlord: "Mike Dingo",
             landlordRating: 4.9,
             paymentType: "Per Month",
+            buildingImage: {apartment},
             price: "₦10,000"
         },
         {
@@ -31,6 +32,7 @@ const Recommended = () => {
             landlord: "Mike Dingo",
             landlordRating: 4.9,
             paymentType: "Per Year",
+            buildingImage: {apartment},
             price: "₦300,000"
         },
         {
@@ -46,6 +48,7 @@ const Recommended = () => {
             landlord: "Mike Dingo",
             landlordRating: 4.9,
             paymentType: "Total package",
+            buildingImage: {apartment},
             price: "₦10,000,000"
         }
     ]

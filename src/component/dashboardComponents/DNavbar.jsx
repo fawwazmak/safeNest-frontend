@@ -15,7 +15,7 @@ const DNavbar = ({ setShowSideBar }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
   return (
-    <div className='bg-white shadow-md p-6 flex justify-between items-center'>
+    <div className='bg-white shadow-md p-6 flex justify-between items-center sticky top-0 z-50'>
       <div className="flex md:flex-nowrap flex-wrap w-full justify-between md:gap-0 gap-2 items-center md:border-r md:pr-4 md:mr-4 md:w-2/3 font-[Inter]">
         <div className="border md:flex hidden gap-1 items-center p-2  w-2/3">
           <CgSearch size={25} />

@@ -48,8 +48,8 @@ const HeroSection = () => {
       <h1 className="text-3xl font-medium mt-5">Welcome Mike!</h1>
 
       <p className="font-light">You Have 3 Upcoming Viewings And 2 New Property Matches</p>
-
-      <div className="grid md:grid-cols-5 sm:grid-cols-2 gap-6 mt-6">
+      {/* grid grid-flow-col auto-cols-[85%] overflow-x-auto md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-x-hidden */}
+      <div className="grid grid-flow-col auto-cols-[80%] overflow-x-auto md:grid-flow-col md:auto-cols-auto md:overflow-x-hidden md:grid-cols-5 sm:grid-cols-2 gap-6 mt-6">
         {items.map((item, index) => (
           <div key={index} className={`text-white shadow-md rounded-xl p-6 flex flex-col sm:text-start text-center`} style={{ backgroundColor: item.bgColor }}>
             <item.icon size={40} className="mb-2 bg-transparent p-2 shadow-lg rounded-md sm:mx-0 mx-auto" />

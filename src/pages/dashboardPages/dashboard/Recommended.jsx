@@ -88,8 +88,8 @@ const Recommended = () => {
         <div className="my-4 pb-4 gap-4 grid grid-flow-col auto-cols-[85%] overflow-x-auto md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-x-hidden">
             {recommended.map((item) => (
                 <div key={item.id} className={`bg-white rounded-lg shadow-md mb-4`} >
-                    <div className="h-48 p-4 flex flex-col justify-between mb-4 bg-cover bg-center bg-no-repeat rounded-t-2xl" style={{ backgroundImage: `url(${item.buildingImage})` }}>
-                        <div className="flex justify-between items-start">
+                    <div className="sm:h-48 h-fit p-4 flex flex-col justify-between mb-4 bg-cover bg-center bg-no-repeat rounded-t-2xl" style={{ backgroundImage: `url(${item.buildingImage})` }}>
+                        <div className="flex flex-wrap sm:mb-0 mb-8 justify-between items-start">
                             <p className="text-white py-2 px-4 rounded-3xl" style={{ backgroundColor: item.labelColor }}>{item.label}</p>
 
                             <div className="flex gap-2 flex-wrap">
@@ -98,7 +98,7 @@ const Recommended = () => {
                             </div>
                         </div>
 
-                        <div className="text-white flex items-center justify-between gap-2 font-light text-sm">
+                        <div className="text-white flex flex-wrap items-center justify-between gap-2 font-light text-sm">
                             <div className="flex items-center bg-[#AFAFAF] p-2 rounded-2xl gap-1">
                                 <TbPhotoSquareRounded />
                                 <p>18</p>
@@ -118,7 +118,7 @@ const Recommended = () => {
 
                     <div className="bg-white p-4 rounded-b-3xl">
                         {/* Name and rating */}
-                        <div className="flex justify-between items-center my-2">
+                        <div className="flex flex-wrap sm:gap-0 gap-3 justify-between items-center my-2">
                             <p>{item.name}</p>
 
                             <p className="flex items-center gap-1 "><FaStar className="text-[#F0B100]" size={20} /> {item.rating}</p>
@@ -127,7 +127,7 @@ const Recommended = () => {
                         {/* Location */}
                         <p className="text-gray-600 text-md mt-2 flex items-center font-light"><CiLocationOn size={20} /> {item.location}</p>
 
-                        <div className="flex items-center justify-between mt-4 mb-2  border-b pb-2 text-gray-600 font-light">
+                        <div className="flex flex-wrap sn:gap-0 gap-2 items-center justify-between mt-4 mb-2  border-b pb-2 text-gray-600 font-light">
                             <p className="flex items-center gap-1"><IoBedOutline /> {item.bedNumber} bed</p>
 
                             <p className="flex items-center gap-1"><PiShowerLight /> {item.bathNumber} bath</p>
@@ -135,14 +135,14 @@ const Recommended = () => {
                             <p className="flex items-center gap-1"><TbSquare /> {item.size}</p>
                         </div>
 
-                        <div className="flex gap-4 my-3">
+                        <div className="flex flex-wrap gap-4 my-3">
                             <p className="py-2 px-5 bg-[#F1F5F9] rounded-2xl">Gym</p>
                             <p className="py-2 px-5 bg-[#F1F5F9] rounded-2xl">Pool</p>
                             <p className="py-2 px-5 bg-[#F1F5F9] rounded-2xl">Parking</p>
                         </div>
 
 
-                        <div className="mt-4 flex justify-between items-center border-b pb-2 mb-4">
+                        <div className="mt-4 flex flex-wrap sm:gap-0 gap-2 justify-between items-center border-b pb-2 mb-4">
                             <div className="flex items-center">
                                 <img src={item.landlordpic} alt={item.landlord} className="w-12 h-12 rounded-full mr-2" />
 
@@ -158,7 +158,7 @@ const Recommended = () => {
                         </div>
 
                         {/* Call and schedule viewing button */}
-                        <div className="flex gap-2 mb-4">
+                        <div className="flex sm:flex-row flex-col gap-2 mb-4">
                             <button className="w-full bg-[#F1F5F9] py-2 rounded-lg flex items-center justify-center gap-2 cursor-pointer"><IoCallOutline /> Call Now</button>
                             <button className="w-full bg-linear-to-br from-[#3A58FB] via-[#6848FB] to-[#9714FA] text-white py-2 rounded-lg flex items-center justify-center gap-2 cursor-pointer">Schedule Tour <FaArrowRight /></button>
                         </div>

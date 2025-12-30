@@ -8,7 +8,7 @@ const DashboardLayout = () => {
 
   return (
     <div className="h-screen overflow-hidden flex">
-      <div className="md:w-1/6 h-full md:static absolute right-0 top-0 z-30">
+      <div className="md:w-1/6 h-full md:static absolute right-0 top-0 z-50">
         <Sidebar showSideBar={showSideBar} setShowSideBar={setShowSideBar} />
       </div>
 

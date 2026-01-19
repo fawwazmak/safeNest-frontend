@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PublicLayout from "./layouts/PublicLayout";
+import PrivateRoute from "./component/PrivateRoute";
+import PublicRoute from "./component/PublicRoute";  
 import DashboardLayout from "./layouts/DashboardLayout";
 
 import LandingPage from "./pages/publicpages/landingPage/LandingPage";
@@ -16,27 +18,36 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* PUBLIC ROUTES */}
+        {/* PUBLIC PAGES */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/properties" element={<Properties />} />
         </Route>
 
-
-        <Route path="/logIn" element={<LogInPage />} />
-        <Route path="/signUp" element={<SignUpPage />} />
+        {/* PUBLIC ROUTES - Login / Signup */}
+        <Route element={<PublicRoute />}>
+          <Route path="/logIn" element={<LogInPage />} />
+          <Route path="/signUp" element={<SignUpPage />} />
+        </Route>
 
         {/* DASHBOARD / AUTHENTICATED ROUTES */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardHome />} />
-          {/* <Route path="profile" element={<Profile />} /> */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardHome />} />
+            {/* <Route path="profile" element={<Profile />} /> */}
+          </Route>
         </Route>
 
         {/* 404 */}
-        <Route path="*" element={<h1 className="text-center mt-20 text-3xl font-[Inter]">404 - Page Not Found</h1>} />
-
+        <Route
+          path="*"
+          element={
+            <h1 className="text-center mt-20 text-3xl font-[Inter]">
+              404 - Page Not Found
+            </h1>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

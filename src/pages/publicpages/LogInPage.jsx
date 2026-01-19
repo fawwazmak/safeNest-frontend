@@ -48,16 +48,28 @@ const LogInPage = () => {
 
       if (!response.ok) {
         let message = "Login failed";
+
+        // Backend sends detail array
         if (Array.isArray(data?.detail)) {
           message = data.detail.map((err) => err.msg).join(", ");
-        } else if (data?.message) {
+        } 
+        // Backend sends message string
+        else if (data?.message) {
           message = data.message;
         }
+
+        // Customize for account not exist
+        if (response.status === 404) {
+          message = "Account does not exist";
+        } else if (response.status === 401) {
+          message = "Invalid email or password";
+        }
+
         setServerError(message);
         return;
       }
 
-      // ✅ Save user to localStorage if "remember me", else sessionStorage
+      // Save to localStorage/sessionStorage
       if (loginData.rememberMe) {
         localStorage.setItem("user", JSON.stringify(data));
       } else {
@@ -65,8 +77,6 @@ const LogInPage = () => {
       }
 
       setServerError("");
-
-      
       navigate("/dashboard");
     } catch (error) {
       console.error("Network error:", error);
@@ -81,7 +91,7 @@ const LogInPage = () => {
       <div className="bg-black opacity-75 shadow-lg w-full h-full">
         <div className="flex md:flex-row flex-col items-center justify-center h-full md:px-48 relative md:text-start text-center">
           {/* Left Side */}
-          <div className="md:w-1/2 w-full md:relative top-0 left-[5%] md:h-auto h-full flex">
+          <div className="md:w-1/2 w-full md:relative top-0 left-[3%] md:h-auto h-full flex">
             <div className="text-white bg-[#262E45F2] w-full md:rounded-l-lg flex flex-col gap-6 p-8 md:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
               <div className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
                 <img src={logo} alt="Logo" className="h-8" />
@@ -108,7 +118,7 @@ const LogInPage = () => {
           </div>
 
           {/* Right Side */}
-          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-6 lg:px-24 md:px-16 px-4">
+          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-4 lg:px-24 md:px-16 px-4">
             <div className="flex mb-8 md:items-center md:justify-baseline justify-between flex-wrap lg:gap-20 md:gap-8">
               <NavLink to="/signUp">
                 <p className="underline">Sign up</p>
@@ -165,12 +175,12 @@ const LogInPage = () => {
 
               {/* Server error */}
               {serverError && (
-                <p className="text-red-500 text-sm mt-1">{serverError}</p>
+                <p className="text-red-500 text-sm mt-1 bg-white text-center">{serverError}</p>
               )}
 
               <button
                 type="submit"
-                className="bg-[#06C3FF] text-white py-4 px-6 block w-full hover:bg-[#05a3cc] hover:rounded-2xl transition-all duration-700"
+                className="bg-[#06C3FF] text-white py-2 px-6 block w-full hover:bg-[#05a3cc] hover:rounded-2xl transition-all duration-700"
                 disabled={loading}
               >
                 {loading ? "Signing in..." : "Log In"}

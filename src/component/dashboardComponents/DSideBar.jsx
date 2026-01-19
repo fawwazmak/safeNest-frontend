@@ -17,6 +17,12 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const DSideBar = ({showSideBar, setShowSideBar}) => {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
+        window.location.href = "/logIn"; // redirect to login
+    };
   return (
     <div className={`bg-[#2E374E] h-full text-white p-5 font-[Inter] ${showSideBar? "block" : "md:block hidden"}`}>
         <div className="md:flex hidden items-center gap-2 font-bold md:text-xl text-lg">
@@ -114,9 +120,9 @@ const DSideBar = ({showSideBar, setShowSideBar}) => {
             </div>
         )}
 
-        <NavLink to="/" className={`px-4 py-2 rounded-2xl hover:bg-[#1B2236] md:flex hidden items-center gap-1 text-red-700`}>
+        <div onClick={handleLogout} className={`px-4 py-2 rounded-2xl hover:bg-[#1B2236] md:flex cursor-pointer hidden items-center gap-1 text-red-700`}>
             <MdLogout size={20} className="inline mr-2" /> Logout
-        </NavLink>
+        </div>
     </div>
   )
 }

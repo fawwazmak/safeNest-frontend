@@ -5,6 +5,7 @@ import FirstStep from "./FirstStep.jsx";
 import SecondStep from "./SecondStep.jsx";
 import ThirdStep from "./ThirdStep.jsx";
 import { signup } from "../../../services/authService.js";
+import { NavLink } from "react-router-dom";
 
 const SignUpPage = () => {
     const [step, setStep] = useState("first");
@@ -135,18 +136,18 @@ const SignUpPage = () => {
 
     return (
         <div className="flex justify-center items-center h-screen bg-[url(/signUpBg.jpg)] bg-cover bg-center font-[Inter]">
-            <div className="bg-black opacity-75 shadow-lg w-full h-full">
+            <div className="bg-black/60  shadow-lg w-full h-full">
                 <div className="flex md:flex-row flex-col items-center justify-center h-full md:px-48 relative md:text-start text-center">
                     
                     {/* LEFT PANEL */}
                     <div className="md:w-1/2 w-full md:relative top-0 left-[8%] md:h-auto h-full flex">
                         <div className="text-white bg-[#262E45F2] w-full md:rounded-l-lg flex flex-col gap-6 p-8 md:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
-                            <div className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
+                            <NavLink to="/" className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
                                 <img src={logo} alt="Logo" className="h-8" />
                                 <p className="text-white">
                                     SAFE <span className="text-[#2B5FA9]">NEST</span>
                                 </p>
-                            </div>
+                            </NavLink>
 
                             <h1 className="text-2xl font-semibold">
                                 Rent / Lease A Home On Your Own Terms
@@ -165,7 +166,7 @@ const SignUpPage = () => {
                     </div>
 
                     {/* RIGHT PANEL */}
-                    <div className="bg-[#1C62BA] text-white md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]">
+                    <div className="bg-[#1C62BA] text-white md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] py-2">
                         {step === "first" && (
                             <FirstStep
                                 step={step}

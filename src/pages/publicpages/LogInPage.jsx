@@ -88,17 +88,17 @@ const LogInPage = () => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-[url(/signUpBg.jpg)] bg-cover bg-center font-[Inter]">
-      <div className="bg-black opacity-75 shadow-lg w-full h-full">
+      <div className="bg-black/60 shadow-lg w-full h-full">
         <div className="flex md:flex-row flex-col items-center justify-center h-full md:px-48 relative md:text-start text-center">
           {/* Left Side */}
           <div className="md:w-1/2 w-full md:relative top-0 left-[3%] md:h-auto h-full flex">
             <div className="text-white bg-[#262E45F2] w-full md:rounded-l-lg flex flex-col gap-6 p-8 md:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
-              <div className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
+              <NavLink to="/" className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
                 <img src={logo} alt="Logo" className="h-8" />
                 <p className="max-[265px]:hidden text-white">
                   SAFE <span className="text-[#2B5FA9]">NEST</span>
                 </p>
-              </div>
+              </NavLink>
 
               <h1 className="text-2xl font-semibold">
                 Sell, Rent, Buy And Lease A Home On Your Own Terms
@@ -118,7 +118,7 @@ const LogInPage = () => {
           </div>
 
           {/* Right Side */}
-          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-4 lg:px-24 md:px-16 px-4">
+          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-8 lg:px-24 md:px-16 px-4">
             <div className="flex mb-8 md:items-center md:justify-baseline justify-between flex-wrap lg:gap-20 md:gap-8">
               <NavLink to="/signUp">
                 <p className="underline">Sign up</p>

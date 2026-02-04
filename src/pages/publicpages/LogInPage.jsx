@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "/logo.png";
 import { login } from "../../services/authService.js";
+import { FiEyeOff, FiEye } from "react-icons/fi";
+
 
 const LogInPage = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -49,25 +53,26 @@ const LogInPage = () => {
       if (!response.ok) {
         let message = "Login failed";
 
-        // Backend sends detail array
-        if (Array.isArray(data?.detail)) {
-          message = data.detail.map((err) => err.msg).join(", ");
-        } 
-        // Backend sends message string
-        else if (data?.message) {
-          message = data.message;
-        }
-
-        // Customize for account not exist
         if (response.status === 404) {
           message = "Account does not exist";
-        } else if (response.status === 401) {
+        } 
+        else if (response.status === 401) {
           message = "Invalid email or password";
+        }
+        else if (response.status === 429) {
+          message = "Too many login attempts. Please wait a moment and try again.";
+        }
+        else if (Array.isArray(data?.detail)) {
+          message = data.detail.map(err => err.msg).join(", ");
+        } 
+        else if (data?.message) {
+          message = data.message;
         }
 
         setServerError(message);
         return;
       }
+
 
       // Save to localStorage/sessionStorage
       if (loginData.rememberMe) {
@@ -137,16 +142,27 @@ const LogInPage = () => {
                 onChange={handleChange}
                 required
               />
+              <div className="relative bg-white text-[#1C62BA] flex w-full">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="outline-none border-none bg-transparent p-3 block w-full"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleChange}
+                  required
+                />
 
-              <input
-                type="password"
-                placeholder="Password"
-                className="outline-none border-none bg-white text-[#1C62BA] p-3 block w-full"
-                name="password"
-                value={loginData.password}
-                onChange={handleChange}
-                required
-              />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#1C62BA]"
+                >
+                  {showPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+
+
 
               {/* Role select */}
               <select

@@ -33,13 +33,13 @@ function App() {
         </Route>
 
         {/* DASHBOARD / AUTHENTICATED ROUTES */}
-        {/* <Route element={<PrivateRoute />}> */}
+        <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
             <Route path="properties" element={<PropertiesPage />} />
             <Route path="rent-application" element={<RentApplication />} />
           </Route>
-        {/* </Route> */}
+        </Route>
 
         {/* 404 */}
         <Route

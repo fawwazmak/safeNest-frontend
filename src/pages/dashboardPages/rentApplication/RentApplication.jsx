@@ -3,7 +3,7 @@ import React from 'react'
 const RentApplication = () => {
   return (
     <div>
-      Hello from Rent Application Page
+        Hello from Rent Application Page
     </div>
   )
 }

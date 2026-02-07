@@ -50,29 +50,11 @@ const LogInPage = () => {
     try {
       const { response, data } = await login(payload);
 
+      // 🔐 unified auth error
       if (!response.ok) {
-        let message = "Login failed";
-
-        if (response.status === 404) {
-          message = "Account does not exist";
-        } 
-        else if (response.status === 401) {
-          message = "Invalid email or password";
-        }
-        else if (response.status === 429) {
-          message = "Too many login attempts. Please wait a moment and try again.";
-        }
-        else if (Array.isArray(data?.detail)) {
-          message = data.detail.map(err => err.msg).join(", ");
-        } 
-        else if (data?.message) {
-          message = data.message;
-        }
-
-        setServerError(message);
+        setServerError("Invalid email or password");
         return;
       }
-
 
       // Save to localStorage/sessionStorage
       if (loginData.rememberMe) {
@@ -83,6 +65,7 @@ const LogInPage = () => {
 
       setServerError("");
       navigate("/dashboard");
+
     } catch (error) {
       console.error("Network error:", error);
       setServerError("Network error, please try again");
@@ -90,6 +73,7 @@ const LogInPage = () => {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-[url(/signUpBg.jpg)] bg-cover bg-center font-[Inter]">

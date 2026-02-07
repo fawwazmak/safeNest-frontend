@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "/logo.png";
 import { login } from "../../services/authService.js";
+import { FiEyeOff, FiEye } from "react-icons/fi";
+
 
 const LogInPage = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -46,26 +50,9 @@ const LogInPage = () => {
     try {
       const { response, data } = await login(payload);
 
+      // 🔐 unified auth error
       if (!response.ok) {
-        let message = "Login failed";
-
-        // Backend sends detail array
-        if (Array.isArray(data?.detail)) {
-          message = data.detail.map((err) => err.msg).join(", ");
-        } 
-        // Backend sends message string
-        else if (data?.message) {
-          message = data.message;
-        }
-
-        // Customize for account not exist
-        if (response.status === 404) {
-          message = "Account does not exist";
-        } else if (response.status === 401) {
-          message = "Invalid email or password";
-        }
-
-        setServerError(message);
+        setServerError("Invalid email or password");
         return;
       }
 
@@ -78,6 +65,7 @@ const LogInPage = () => {
 
       setServerError("");
       navigate("/dashboard");
+
     } catch (error) {
       console.error("Network error:", error);
       setServerError("Network error, please try again");
@@ -86,19 +74,20 @@ const LogInPage = () => {
     }
   };
 
+
   return (
     <div className="flex justify-center items-center h-screen bg-[url(/signUpBg.jpg)] bg-cover bg-center font-[Inter]">
-      <div className="bg-black opacity-75 shadow-lg w-full h-full">
+      <div className="bg-black/60 shadow-lg w-full h-full">
         <div className="flex md:flex-row flex-col items-center justify-center h-full md:px-48 relative md:text-start text-center">
           {/* Left Side */}
           <div className="md:w-1/2 w-full md:relative top-0 left-[3%] md:h-auto h-full flex">
             <div className="text-white bg-[#262E45F2] w-full md:rounded-l-lg flex flex-col gap-6 p-8 md:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)]">
-              <div className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
+              <NavLink to="/" className="flex md:justify-start justify-center items-center gap-3 font-bold md:text-xl text-lg">
                 <img src={logo} alt="Logo" className="h-8" />
                 <p className="max-[265px]:hidden text-white">
                   SAFE <span className="text-[#2B5FA9]">NEST</span>
                 </p>
-              </div>
+              </NavLink>
 
               <h1 className="text-2xl font-semibold">
                 Sell, Rent, Buy And Lease A Home On Your Own Terms
@@ -118,7 +107,7 @@ const LogInPage = () => {
           </div>
 
           {/* Right Side */}
-          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-4 lg:px-24 md:px-16 px-4">
+          <div className="bg-[#1C62BA] text-white opacity-100 md:rounded-r-lg md:w-1/2 w-full md:[clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)] md:relative top-0 right-[5%] md:h-auto h-full py-8 lg:px-24 md:px-16 px-4">
             <div className="flex mb-8 md:items-center md:justify-baseline justify-between flex-wrap lg:gap-20 md:gap-8">
               <NavLink to="/signUp">
                 <p className="underline">Sign up</p>
@@ -137,16 +126,27 @@ const LogInPage = () => {
                 onChange={handleChange}
                 required
               />
+              <div className="relative bg-white text-[#1C62BA] flex w-full">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="outline-none border-none bg-transparent p-3 block w-full"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleChange}
+                  required
+                />
 
-              <input
-                type="password"
-                placeholder="Password"
-                className="outline-none border-none bg-white text-[#1C62BA] p-3 block w-full"
-                name="password"
-                value={loginData.password}
-                onChange={handleChange}
-                required
-              />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#1C62BA]"
+                >
+                  {showPassword ? <FiEyeOff /> : <FiEye />}
+                </button>
+              </div>
+
+
 
               {/* Role select */}
               <select

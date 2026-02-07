@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import PublicLayout from "./layouts/PublicLayout";
 import PrivateRoute from "./component/PrivateRoute";
 import PublicRoute from "./component/PublicRoute";  
@@ -12,11 +14,15 @@ import SignUpPage from "./pages/publicpages/signUpPage/SignUpPage";
 
 // dashboard pages
 import DashboardHome from "./pages/dashboardPages/dashboard/HomePage";
-// import Profile from "./pages/dashboard/Profile";
+import PropertiesPage from "./pages/dashboardPages/properties/PropertiesPage";
+import RentApplication from "./pages/dashboardPages/rentApplication/RentApplication";
 
 function App() {
   return (
     <BrowserRouter>
+    {/* React toast replacing alert for better user experience  */}
+      <Toaster position="top-right" />
+      
       <Routes>
         {/* PUBLIC PAGES */}
         <Route element={<PublicLayout />}>
@@ -35,7 +41,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />
-            {/* <Route path="profile" element={<Profile />} /> */}
+            <Route path="properties" element={<PropertiesPage />} />
+            <Route path="rent-application" element={<RentApplication />} />
           </Route>
         </Route>
 

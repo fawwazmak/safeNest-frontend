@@ -37,43 +37,43 @@ const DSideBar = ({showSideBar, setShowSideBar}) => {
 
         <div className='flex flex-col gap-6 my-6'>
             <div>
-                <NavLink to="/dashboard" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="/dashboard" end className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <MdDashboard size={20} className="inline mb-1 mr-2"/>
                     Dashboard
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="/dashboard/properties" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <img src={propertyIcon} alt="Property Icon" className="inline mb-1 mr-2 w-5 h-5"/>
                     Properties
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="/dashboard/rent-application" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <img src={rentIcon} alt="Rent Icon" className="inline mb-1 mr-2 w-5 h-5"/>
                     Rent Application
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <GrTransaction size={20} className="inline mb-1 mr-2" />
                     Transactions
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <CiSettings size={20} className="inline mb-1 mr-2" />
                     Settings
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <TiMessages size={20} className="inline mb-1 mr-2" />
                     Messages
                 </NavLink>
             </div>
             <div>
-                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : ''} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
+                <NavLink to="{}" className={({isActive}) => `${isActive ? 'bg-[#2B5FA9]' : 'bg-none'} px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1`}>
                     <FaHandsHelping size={20} className="inline mb-1 mr-2" />
                     Help & Support
                 </NavLink>
@@ -114,9 +114,9 @@ const DSideBar = ({showSideBar, setShowSideBar}) => {
                     <p>Settings</p>
                 </div>
 
-                <NavLink to="/" className={`px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1 text-red-700`}>
+                <div onClick={handleLogout} className={`px-4 py-2 rounded-2xl hover:bg-[#1B2236] flex items-center gap-1 text-red-700 cursor-pointer`}>
                     <MdLogout size={20} className="inline mr-2" /> Logout
-                </NavLink>
+                </div>
             </div>
         )}
 

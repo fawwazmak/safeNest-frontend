@@ -21,6 +21,14 @@ const DNavbar = ({ setShowSideBar }) => {
     window.location.href = "/logIn"; // redirect to login
   };
 
+  const getUserEmail = () => {
+    const storedUser = localStorage.getItem("user") || sessionStorage.getItem("user");
+
+    return storedUser ? JSON.parse(storedUser)?.user?.email : null;
+  };
+
+
+
 
   return (
     <div className='bg-white shadow-md p-6 flex justify-between items-center sticky top-0 z-40'>
@@ -57,9 +65,9 @@ const DNavbar = ({ setShowSideBar }) => {
         <img src={profilePic} alt="profile-pic" className='block h-8' />
 
         <div className='flex flex-wrap items-center justify-between'>
-          <div className='flex flex-col'>
+          <div className='flex flex-col max-w-[150px]'>
             <p>Mike Dingo</p>
-            <p>safenest@gmail.com</p>
+            <p className="max-w-full truncate">{getUserEmail()}</p>
           </div>
 
           <div>
@@ -70,12 +78,12 @@ const DNavbar = ({ setShowSideBar }) => {
       </div>
 
       {isProfileOpen && (
-        <div className='bg-white text-black fixed top-[15%] right-0 px-3 shadow-lg rounded-lg w-60 py-4 flex flex-col gap-4 z-10'>
+        <div className='bg-white text-black fixed top-[15%] right-[3%] px-3 shadow-lg rounded-lg w-60 py-4 flex flex-col gap-4 z-10'>
           <div className='flex'>
             <img src={profilePic} alt="profile-pic" className='block h-8' />
             <div className='flex flex-col'>
               <p>Mike Dingo</p>
-              <p>safenest@gmail.com</p>
+              <p className="w-[150px] truncate">{getUserEmail()}</p>
             </div>
           </div>
 

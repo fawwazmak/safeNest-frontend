@@ -32,7 +32,6 @@ const LogInPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // frontend validation
     if (!loginData.email || !loginData.password || !loginData.role) {
       setServerError("Please fill in all required fields");
       return;
@@ -180,7 +179,7 @@ const LogInPage = () => {
 
               <button
                 type="submit"
-                className="bg-[#06C3FF] text-white py-2 px-6 block w-full hover:bg-[#05a3cc] hover:rounded-2xl transition-all duration-700"
+                className={`bg-[#06C3FF] text-white py-2 px-6 block w-full hover:bg-[#05a3cc] hover:rounded-2xl transition-all duration-700 ${loading ? "rounded-2xl" : ""}`}
                 disabled={loading}
               >
                 {loading ? "Signing in..." : "Log In"}

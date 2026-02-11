@@ -13,10 +13,8 @@ const FirstStep = ({ step, setStep, signUpData, handleChange }) => {
     <div className='flex flex-col gap-4 md:py-28 py-8 lg:px-24 md:px-16 px-4 '>
       <p>Sign up now to start your journey to stress-free renting</p>
 
-      <button 
-        className='bg-white text-[#23A9F0] lg:px-4 md:px-2 py-2 rounded-lg font-bold block cursor-pointer' 
-        onClick={() => handleRoleSelection("tenant")}
-      >
+      <button className='bg-white text-[#23A9F0] lg:px-4 md:px-2 py-2 rounded-lg font-bold block cursor-pointer' 
+        onClick={() => handleRoleSelection("tenant")}>
         Become A Tenant
       </button>
 

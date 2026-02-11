@@ -186,7 +186,7 @@ const LogInPage = () => {
               </button>
             </form>
 
-            <p className="mt-4 text-xs underline cursor-pointer">Forgot Password</p>
+            <p className="mt-4 text-xs underline cursor-pointer" onClick={() => {navigate("/forgot-password")}}>Forgot Password</p>
           </div>
         </div>
       </div>
